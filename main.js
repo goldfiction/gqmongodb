@@ -63,12 +63,12 @@
       collection = o.collectionObj;
       o.data.updateTime = new Date();
       delete o.data._id;
-      return collection.updateOne(o.key, {
+      return collection.updateMany(o.key, {
         $set: o.data
       }, {
         upsert: true
       }, function(e, r) {
-        that.find(o, cb);
+        collection.find(o.data).toArray(cb);
         return o.clientObj.close();
       });
     });

@@ -32,7 +32,8 @@
     },
     data: {
       name: "test101",
-      value: getRandomInt(100, 999)
+      value: getRandomInt(100, 999),
+      enabled: true
     }
   };
 
@@ -82,13 +83,6 @@
     });
   });
 
-  it("should be able to upsert", function(done) {
-    return mongo.upsert(o, function(e, r) {
-      console.dir(r);
-      return done(e);
-    });
-  });
-
   it("should be able to disable", function(done) {
     return mongo.disable(o, function(e, r) {
       console.dir(r);
@@ -96,8 +90,16 @@
     });
   });
 
+  it("should be able to upsert", function(done) {
+    console.log(o2);
+    return mongo.upsert(o2, function(e, r) {
+      console.dir(r);
+      return done(e);
+    });
+  });
+
   it("should be able to delete", function(done) {
-    return mongo["delete"](o, function(e, r) {
+    return mongo["delete"](o3, function(e, r) {
       console.dir(r);
       return done(e);
     });

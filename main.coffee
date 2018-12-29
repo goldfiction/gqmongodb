@@ -41,12 +41,12 @@ that=this
     collection=o.collectionObj
     o.data.updateTime=new Date()
     delete o.data._id
-    collection.updateOne o.key,
+    collection.updateMany o.key,
       $set:o.data
     ,
       upsert:true
     ,(e,r)->
-      that.find(o,cb)
+      collection.find(o.data).toArray cb
       o.clientObj.close()
 
 @disable=(o,cb)->

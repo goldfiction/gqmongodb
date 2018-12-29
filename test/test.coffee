@@ -24,6 +24,7 @@ o2=
   data:
     name:"test101"
     value:getRandomInt(100,999)
+    enabled:true
 
 o3=
   url:"mongodb://mongo:27017/"
@@ -58,18 +59,19 @@ it "should be able to find",(done)->
     console.dir r
     done e
 
-it "should be able to upsert",(done)->
-  mongo.upsert o,(e,r)->
-    console.dir r
-    done e
-
 it "should be able to disable",(done)->
   mongo.disable o,(e,r)->
     console.dir r
     done e
 
+it "should be able to upsert",(done)->
+  console.log o2
+  mongo.upsert o2,(e,r)->
+    console.dir r
+    done e
+
 it "should be able to delete",(done)->
-  mongo.delete o,(e,r)->
+  mongo.delete o3,(e,r)->
     console.dir r
     done e
 
