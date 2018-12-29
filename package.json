@@ -1,0 +1,11 @@
+{
+  "name": "gqmongodb",
+  "version": "1.0.0",
+  "main":"./main.js",
+  "description":"gqmongodb is a simple to use yet clean version (in terms of return values) of mongodb.js driver API. See /test for details of how to use",
+  "license":"Apache-2.0",
+  "repository":"git@github.com:goldfiction/gqmongodb.git",
+  "dependencies": {
+    "mongodb":"3.1.10"
+  }
+}
